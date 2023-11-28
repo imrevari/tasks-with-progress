@@ -1,9 +1,10 @@
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import { Box, Divider, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, Checkbox, Collapse, Divider, FormControlLabel, FormGroup, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import { FC } from "react";
+import CheckboxComponent from './checkbox/CheckboxComponent';
 
 
 const Tasks: FC<any> = () => {
@@ -31,7 +32,7 @@ const Tasks: FC<any> = () => {
             </ListItemButton>
 
             <Divider />
-
+            <>
             <ListItemButton>
                 <ListItemIcon>
                     <AssignmentOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
@@ -40,7 +41,7 @@ const Tasks: FC<any> = () => {
             </ListItemButton>
 
             <Divider />
-
+            </>
             <ListItemButton onClick={ () => console.log('click')}>
                 <ListItemIcon>
                     <AssignmentOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
@@ -49,16 +50,12 @@ const Tasks: FC<any> = () => {
                 {'Show  '}<ExpandLess />
                 <ExpandMore />
             </ListItemButton>
-            {/* <Collapse in={true} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                    <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                </ListItemButton>
-                </List>
-            </Collapse> */}
+            <Collapse in={true} timeout="auto" unmountOnExit>
+            <FormGroup>
+                <CheckboxComponent checked={true} label='Pista'/>
+                <CheckboxComponent checked={false} label='Jancsi'/>
+            </FormGroup>
+            </Collapse>
         </List>
     </Box>)
 
