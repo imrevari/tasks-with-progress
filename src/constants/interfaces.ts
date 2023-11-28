@@ -13,5 +13,6 @@ export interface GroupOfTasks {
 
 export interface StateContextType {
     groupsOfTasks: GroupOfTasks[];
+    totalPoints: number;
     setGroupsOFTasks: Dispatch<SetStateAction<GroupOfTasks[]>>;
 }

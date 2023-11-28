@@ -8,37 +8,21 @@ import Tasks from "./Tasks";
 
 const MainApp: FC = () => {
 
-    const {setGroupsOFTasks} = useStateContext()
-    
-    useEffect(() => {
-        axios.get(
-            API_URL
-        )
-        .then(res => {
-            const responseBody = res.data;
-            if(responseBody){
-                setGroupsOFTasks(responseBody)
-            }
-        }
-          ).catch( error => {
-            console.log(error)
-          })
-
-    }, [])
-
-
     return(
         <Container >
-            <Box sx={{backgroundColor: '#e9f1f2',
-                            display: 'flex',
-                            flexWrap: 'wrap', 
-                            alignItems: 'center',
-                            flexDirection: 'column', 
-                            justifyContent: 'center'}}> 
-
-                <Tasks />
-                        
-            </Box>
+                <Box sx={{
+                    backgroundColor: '#e9f1f2',
+                    margin: 0,
+                    display: 'flex',
+                    flexWrap: 'wrap', 
+                    alignItems: 'center',
+                    flexDirection: 'column', 
+                    justifyContent: 'center',
+                    marginTop: '5px',
+                    width: '100%'}}>
+                        <Tasks />      
+                </Box>
+                
         </Container>
     )
 

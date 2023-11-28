@@ -16,9 +16,9 @@ const Tasks: FC = () => {
                 display: 'flex',
                 flexWrap: 'wrap', 
                 justifyContent: 'center', 
-                marginTop: '75px', marginBottom: '80px', width: '90%'}}>
+                marginTop: '75px', marginBottom: '80px', width: '85%'}}>
          <List
-            sx={{ width: '80%', 
+            sx={{ width: '90%', 
                 bgcolor: 'background.paper', 
                 padding: 0,
                 borderRadius: '5px'}}
