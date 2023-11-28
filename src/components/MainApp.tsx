@@ -1,14 +1,14 @@
 import { Box, Container } from "@mui/material";
-import { FC, useEffect, useState } from "react";
-import Tasks from "./Tasks";
-import { GroupOfTasks } from "../constants/interfaces";
 import axios from "axios";
+import { FC, useEffect } from "react";
 import { API_URL } from "../constants/constants";
+import { useStateContext } from "../stateContext/StateContext";
+import Tasks from "./Tasks";
 
 
 const MainApp: FC = () => {
 
-    const [groupsOfTasks, setGroupsOFTasks] = useState<GroupOfTasks[]>([])
+    const {setGroupsOFTasks} = useStateContext()
     
     useEffect(() => {
         axios.get(
@@ -36,7 +36,7 @@ const MainApp: FC = () => {
                             flexDirection: 'column', 
                             justifyContent: 'center'}}> 
 
-                <Tasks tasks={groupsOfTasks}/>
+                <Tasks />
                         
             </Box>
         </Container>

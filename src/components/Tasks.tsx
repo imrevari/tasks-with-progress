@@ -1,19 +1,14 @@
-import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
-import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import { Box, Checkbox, Collapse, Divider, FormControlLabel, FormGroup, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, List } from "@mui/material";
 
-import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import { FC } from "react";
-import CheckboxComponent from './checkbox/CheckboxComponent';
+import { useStateContext } from '../stateContext/StateContext';
 import TaskListElement from './TaskListElement';
-import { GroupOfTasks } from '../constants/interfaces';
 
 
-interface TasksProps {
-    tasks: GroupOfTasks[]
-}
 
-const Tasks: FC<TasksProps> = ({tasks}) => {
+const Tasks: FC = () => {
+
+    const {groupsOfTasks: tasks} = useStateContext()
 
 
     return(

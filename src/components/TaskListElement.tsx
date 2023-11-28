@@ -1,9 +1,9 @@
-import { FC, useMemo, useState } from "react";
-import { Collapse, Divider, FormGroup, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import { GroupOfTasks, Task } from "../constants/interfaces";
-import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
+import { Collapse, Divider, FormGroup, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { FC, useMemo, useState } from "react";
+import { GroupOfTasks } from "../constants/interfaces";
 import CheckboxComponent from "./checkbox/CheckboxComponent";
 
 
