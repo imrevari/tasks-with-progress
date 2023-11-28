@@ -1,7 +1,7 @@
-import { FC, useEffect, useMemo, useState } from "react";
-import { StateContext } from "./StateContext";
+import { FC, useEffect, useState } from "react";
 import { GroupOfTasks } from "../constants/interfaces";
 import { useFetchTasks } from "../services/customHooks";
+import { StateContext } from "./StateContext";
 
 
 
@@ -18,14 +18,6 @@ const StateContextProvider: FC<StateContextProps> = ({children}) => {
     useEffect(() => {
       setGroupsOFTasks(allFetchedTasks)
     }, [allFetchedTasks])
-
-    const fulfilledPoints = useMemo(() => {
-      let total = 0;
-      groupsOfTasks.forEach( ({tasks}) => {
-          tasks.forEach( ({value, checked}) => {if(checked){total = total + value}})
-      });
-      return total;
-    }, [groupsOfTasks])
 
     return(
 

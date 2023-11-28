@@ -1,8 +1,5 @@
 import { Box, Container } from "@mui/material";
-import axios from "axios";
-import { FC, useEffect } from "react";
-import { API_URL } from "../constants/constants";
-import { useStateContext } from "../stateContext/StateContext";
+import { FC } from "react";
 import Tasks from "./Tasks";
 
 
