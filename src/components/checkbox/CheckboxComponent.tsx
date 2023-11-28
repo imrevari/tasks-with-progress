@@ -4,16 +4,20 @@ import { FC } from "react";
 interface CheckboxComponentProps {
     checked: boolean;
     label: string;
+    onClick: (index: number) => void;
+    index: number;
 }
 
 
-const CheckboxComponent: FC<CheckboxComponentProps> = ({checked, label}) => {
+const CheckboxComponent: FC<CheckboxComponentProps> = ({checked, label, onClick, index}) => {
+    
 
 return(
     <FormControlLabel 
         sx={{marginLeft: '20px'}}
         control={
-             <Checkbox 
+             <Checkbox
+                onClick={() => onClick(index)} 
                 checked={checked}
                 size="small" 
                 sx={{   marginRight: '5px',

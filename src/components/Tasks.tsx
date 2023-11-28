@@ -27,6 +27,7 @@ const Tasks: FC = () => {
         >
            {tasks.map( (taskGroup, index) => <TaskListElement 
                                                 taskGroup={taskGroup}
+                                                key={index}
                                                 isLast={index === (tasks.length - 1)}/>)}  
         </List>
     </Box>)
