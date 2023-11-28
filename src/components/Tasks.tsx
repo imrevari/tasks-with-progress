@@ -5,9 +5,15 @@ import { Box, Checkbox, Collapse, Divider, FormControlLabel, FormGroup, List, Li
 import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import { FC } from "react";
 import CheckboxComponent from './checkbox/CheckboxComponent';
+import TaskListElement from './TaskListElement';
+import { GroupOfTasks } from '../constants/interfaces';
 
 
-const Tasks: FC<any> = () => {
+interface TasksProps {
+    tasks: GroupOfTasks[]
+}
+
+const Tasks: FC<TasksProps> = ({tasks}) => {
 
 
     return(
@@ -23,39 +29,10 @@ const Tasks: FC<any> = () => {
                 borderRadius: '5px'}}
             component="div"
             aria-labelledby="nested-list-subheader"
-            >
-            <ListItemButton>
-                <ListItemIcon>
-                    <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
-                </ListItemIcon>
-                <ListItemText primary="Sent mail" />
-            </ListItemButton>
-
-            <Divider />
-            <>
-            <ListItemButton>
-                <ListItemIcon>
-                    <AssignmentOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
-                </ListItemIcon>
-                <ListItemText primary="Drafts" />
-            </ListItemButton>
-
-            <Divider />
-            </>
-            <ListItemButton onClick={ () => console.log('click')}>
-                <ListItemIcon>
-                    <AssignmentOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
-                </ListItemIcon>
-                <ListItemText primary="Inbox" />
-                {'Show  '}<ExpandLess />
-                <ExpandMore />
-            </ListItemButton>
-            <Collapse in={true} timeout="auto" unmountOnExit>
-            <FormGroup>
-                <CheckboxComponent checked={true} label='Pista'/>
-                <CheckboxComponent checked={false} label='Jancsi'/>
-            </FormGroup>
-            </Collapse>
+        >
+           {tasks.map( (taskGroup, index) => <TaskListElement 
+                                                taskGroup={taskGroup}
+                                                isLast={index === (tasks.length - 1)}/>)}  
         </List>
     </Box>)
 

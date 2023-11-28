@@ -3,7 +3,7 @@ import { Collapse, Divider, FormGroup, List, ListItemButton, ListItemIcon, ListI
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 import { GroupOfTasks, Task } from "../constants/interfaces";
-import { StarBorder } from "@mui/icons-material";
+import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import CheckboxComponent from "./checkbox/CheckboxComponent";
 
 
@@ -16,37 +16,42 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
 
     const {name, tasks} = taskGroup;
 
-    const [isExpanded, setisExpanded] = useState<boolean>(false)
+    const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
     const tasksFulfilled = useMemo(() => {
         return !(tasks.some(({checked}) => !checked))
     }, [tasks])
 
+    const showHIde = () => {
+        setIsExpanded(prevState => !prevState)
+    }
+
 
     return(
         <>
-        <ListItemButton>
-        <ListItemIcon>
-            {tasksFulfilled
-            ?
-            <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
+            <ListItemButton>
+            <ListItemIcon sx={{ minWidth: '35px' }}>
+                {tasksFulfilled
+                ?
+                <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
+                :
+                <AssignmentOutlinedIcon fontSize="small"/>
+                }
+            </ListItemIcon>
+            <ListItemText primary={name} />
+            {isExpanded ? 
+            <>{'Hide'}<ExpandLess onClick={showHIde} /></>
             :
-            <AssignmentOutlinedIcon fontSize="small"/>
-            }
-        </ListItemIcon>
-        <ListItemText primary={name} />
-        </ListItemButton>
-        
-        <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-            <FormGroup>
-                {tasks.map(({checked, description}, index) => 
-                    <CheckboxComponent key={index} checked={checked} label={description}/>)}
-            </FormGroup>
-        </Collapse>
-
-
-
-        {!isLast && <Divider />}
+            <> {'Show'}<ExpandMore onClick={showHIde} /></>}
+            </ListItemButton>
+            
+            {isExpanded && <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                <FormGroup>
+                    {tasks.map(({checked, description}, index) => 
+                        <CheckboxComponent key={index} checked={checked} label={description}/>)}
+                </FormGroup>
+            </Collapse>}
+            {!isLast && <Divider />}
         </>
     )
 
