@@ -13,15 +13,17 @@ const Tasks: FC = () => {
 
     return(
     <Box sx={{ 
+                border: '2px solid #e9f1f2',
+                borderRadius: '7px',
                 display: 'flex',
                 flexWrap: 'wrap', 
                 justifyContent: 'center', 
-                marginTop: '75px', marginBottom: '80px', width: '85%'}}>
+                marginTop: '25px', marginBottom: '25px', width: '95%'}}>
          <List
-            sx={{ width: '90%', 
-                bgcolor: 'background.paper', 
-                padding: 0,
-                borderRadius: '5px'}}
+            sx={{ width: '100%', 
+                bgcolor: 'background.paper',
+                borderRadius: '7px', 
+                padding: 0}}
             component="div"
             aria-labelledby="nested-list-subheader"
         >

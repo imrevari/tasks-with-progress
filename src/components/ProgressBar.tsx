@@ -21,22 +21,27 @@ const ProgressBar: FC = () => {
             if((105 - fulfilledPercentage) > 95){
                 return 95
             }
+            if((105 - fulfilledPercentage) < 7){
+                return 10
+            }
             return (105 - fulfilledPercentage)
  
     }
 
-    return(<>
-            <Box sx={{ width: '50%', display: 'flex', marginTop: '25px'}}>
+    return(<Box sx={{ width: '90%', display: 'flex', marginTop: '25px', flexDirection: 'column'}}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Lodgify grouped tasks</Typography>
+
+            <Box sx={{ width: '105%', display: 'flex', marginTop: '5px'}}>
                 
                 <LinearProgress 
-                    sx={{height: '20px', borderRadius: '5px', width: '100%',
+                    sx={{height: '20px', borderRadius: '11px', width: '100%',
                         '&.MuiLinearProgress-root':{
                             backgroundColor: '#f8fcfc'
                         },
 
                         ' > span': {
                             '&.MuiLinearProgress-bar1Determinate' :{
-                                borderRadius: '5px',
+                                borderRadius: '11px',
                                 backgroundColor: '#08b494'
                             }
                         }
@@ -54,7 +59,7 @@ const ProgressBar: FC = () => {
                 fulfilledPercentage
                 )}%`}</Typography>
             </Box>
-    </>)
+    </Box>)
 
 }
 

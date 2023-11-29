@@ -9,7 +9,9 @@ const MainApp: FC = () => {
     return(
         <Container >
                 <Box sx={{
-                    backgroundColor: '#e9f1f2',
+                    // backgroundColor: '#e9f1f2',
+                    border: '2px solid #e9f1f2',
+                    borderRadius: '7px',
                     margin: 0,
                     display: 'flex',
                     flexWrap: 'wrap', 
@@ -17,7 +19,7 @@ const MainApp: FC = () => {
                     flexDirection: 'column', 
                     justifyContent: 'center',
                     marginTop: '5px',
-                    width: '100%'}}>
+                    width: '70%'}}>
                         <ProgressBar />
                         <Tasks />      
                 </Box>
