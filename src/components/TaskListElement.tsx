@@ -1,7 +1,7 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
-import { Collapse, Divider, FormGroup, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Collapse, Divider, FormGroup, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC, useMemo, useState } from "react";
 import { GroupOfTasks } from "../constants/interfaces";
 import { useStateContext } from "../stateContext/StateContext";
@@ -64,9 +64,16 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
                 </ListItemIcon>
                 <ListItemText primary={name} />
                 {isExpanded ? 
-                <>{'Hide'}<ExpandLess sx={{ color: '#e0dcdc' }}/></>
+                <> 
+                    <Typography color={'#b4b4b4'}>{'Hide'}</Typography>
+                    <ExpandLess sx={{ color: '#b4b4b4' }}/>
+                </>
                 :
-                <> {'Show'}<ExpandMore sx={{ color: '#e0dcdc' }}/></>}
+                <> 
+                    <Typography color={'#b4b4b4'}>{'Show'}</Typography>
+                    <ExpandMore sx={{ color: '#b4b4b4' }}/>
+
+                </>}
             </ListItemButton>
             
             {isExpanded && <Collapse in={isExpanded} timeout="auto" unmountOnExit>
@@ -80,7 +87,7 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
                             label={description}/>)}
                 </FormGroup>
             </Collapse>}
-            {!isLast && <Divider />}
+            {!isLast && <Divider sx={{borderWidth: 1}}/>}
         </>
     )
 

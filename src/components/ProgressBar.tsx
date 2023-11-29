@@ -22,7 +22,7 @@ const ProgressBar: FC = () => {
                 return 95
             }
             if((105 - fulfilledPercentage) < 7){
-                return 10
+                return 7
             }
             return (105 - fulfilledPercentage)
  
