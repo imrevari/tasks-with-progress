@@ -57,7 +57,7 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
             <ListItemIcon sx={{ minWidth: '35px' }}>
                 {tasksFulfilled
                 ?
-                <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: 'green' }}/>
+                <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: '#08b494' }}/>
                 :
                 <AssignmentOutlinedIcon fontSize="small"/>
                 }

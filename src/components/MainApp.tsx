@@ -1,6 +1,7 @@
 import { Box, Container } from "@mui/material";
 import { FC } from "react";
 import Tasks from "./Tasks";
+import ProgressBar from "./ProgressBar";
 
 
 const MainApp: FC = () => {
@@ -17,6 +18,7 @@ const MainApp: FC = () => {
                     justifyContent: 'center',
                     marginTop: '5px',
                     width: '100%'}}>
+                        <ProgressBar />
                         <Tasks />      
                 </Box>
                 
