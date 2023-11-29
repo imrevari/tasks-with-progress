@@ -1,5 +1,7 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { FC } from "react";
+import { styles } from "../../styles/styles";
+
 
 interface CheckboxComponentProps {
     checked: boolean;
@@ -14,16 +16,13 @@ const CheckboxComponent: FC<CheckboxComponentProps> = ({checked, label, onClick,
 
 return(
     <FormControlLabel 
-        sx={{marginLeft: '20px'}}
+        sx={styles.checkboxLabel}
         control={
              <Checkbox
                 onClick={() => onClick(index)} 
                 checked={checked}
                 size="small" 
-                sx={{   marginRight: '5px',
-                        '&.Mui-checked': {
-                        color: '#08b494',
-                } }}
+                sx={styles.checkbox}
     />} label={label} />
 )
 

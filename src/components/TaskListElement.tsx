@@ -6,6 +6,7 @@ import { FC, useMemo, useState } from "react";
 import { GroupOfTasks } from "../constants/interfaces";
 import { useStateContext } from "../stateContext/StateContext";
 import CheckboxComponent from "./checkbox/CheckboxComponent";
+import { styles } from "../styles/styles";
 
 
 interface TaskListElementProps {
@@ -54,10 +55,10 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
     return(
         <>
             <ListItemButton onClick={showHIde}>
-                <ListItemIcon sx={{ minWidth: '35px' }}>
+                <ListItemIcon sx={styles.listItemIcon}>
                     {tasksFulfilled
                     ?
-                    <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: '#08b494' }}/>
+                    <AssignmentTurnedInOutlinedIcon fontSize="small" sx={styles.greenIcon}/>
                     :
                     <AssignmentOutlinedIcon fontSize="small"/>
                     }
@@ -65,13 +66,13 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
                 <ListItemText primary={name} />
                 {isExpanded ? 
                 <> 
-                    <Typography color={'#b4b4b4'}>{'Hide'}</Typography>
-                    <ExpandLess sx={{ color: '#b4b4b4' }}/>
+                    <Typography color={'#b4b4b4'}>Hide</Typography>
+                    <ExpandLess sx={styles.expandCollapse}/>
                 </>
                 :
                 <> 
-                    <Typography color={'#b4b4b4'}>{'Show'}</Typography>
-                    <ExpandMore sx={{ color: '#b4b4b4' }}/>
+                    <Typography color={'#b4b4b4'}>Show</Typography>
+                    <ExpandMore sx={styles.expandCollapse}/>
 
                 </>}
             </ListItemButton>
@@ -87,7 +88,7 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
                             label={description}/>)}
                 </FormGroup>
             </Collapse>}
-            {!isLast && <Divider sx={{borderWidth: 1}}/>}
+            {!isLast && <Divider sx={styles.divider}/>}
         </>
     )
 

@@ -1,6 +1,7 @@
 import { FC, useMemo } from "react";
 import { useStateContext } from "../stateContext/StateContext";
 import { Box, LinearProgress, Typography } from "@mui/material";
+import { styles } from "../styles/styles";
 
 
 const ProgressBar: FC = () => {
@@ -28,36 +29,28 @@ const ProgressBar: FC = () => {
  
     }
 
-    return(<Box sx={{ width: '90%', display: 'flex', marginTop: '35px', flexDirection: 'column'}}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Lodgify Grouped Tasks</Typography>
+    return(<Box sx={styles.progressBarMainBox}>
+            <Typography variant="h6" sx={styles.progressBarTypography}>
+                Lodgify Grouped Tasks
+            </Typography>
 
-            <Box sx={{ width: '105%', display: 'flex', marginTop: '5px'}}>
+            <Box sx={styles.progressBarInnerBox}>
                 
                 <LinearProgress 
-                    sx={{height: '20px', borderRadius: '11px', width: '100%',
-                        '&.MuiLinearProgress-root':{
-                            backgroundColor: '#f8fcfc'
-                        },
-
-                        ' > span': {
-                            '&.MuiLinearProgress-bar1Determinate' :{
-                                borderRadius: '11px',
-                                backgroundColor: '#08b494'
-                            }
-                        }
-                        
-                    }}
+                    sx={styles.progressBarLinearProgress}
                     variant="determinate" 
                     value={fulfilledPercentage} />
 
                 <Typography 
-                sx={{left: `-${percentagePosition(fulfilledPercentage)}%`, 
-                        position: 'relative',
-                        transitionDuration: '0.4s',
-                        transitionTimingFunction: 'linear'}}
-                variant="body2" color={fulfilledPercentage > 5 ? "white" : 'inherit'}>{`${Math.round(
-                fulfilledPercentage
-                )}%`}</Typography>
+                    sx={{left: `-${percentagePosition(fulfilledPercentage)}%`, 
+                            position: 'relative',
+                            transitionDuration: '0.4s',
+                            transitionTimingFunction: 'linear'}}
+                    variant="body2" 
+                    color={fulfilledPercentage > 5 ? "white" : 'inherit'}
+                >
+                    {`${Math.round(fulfilledPercentage)}%`}
+                </Typography>
             </Box>
     </Box>)
 
