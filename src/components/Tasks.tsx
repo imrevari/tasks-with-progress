@@ -13,7 +13,7 @@ const Tasks: FC = () => {
 
     return(
     <Box sx={{ 
-                border: '2px solid #e9f1f2',
+                border: '2px solid #e0dcdc',
                 borderRadius: '7px',
                 display: 'flex',
                 flexWrap: 'wrap', 

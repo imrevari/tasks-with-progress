@@ -28,8 +28,8 @@ const ProgressBar: FC = () => {
  
     }
 
-    return(<Box sx={{ width: '90%', display: 'flex', marginTop: '25px', flexDirection: 'column'}}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Lodgify grouped tasks</Typography>
+    return(<Box sx={{ width: '90%', display: 'flex', marginTop: '35px', flexDirection: 'column'}}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Lodgify Grouped Tasks</Typography>
 
             <Box sx={{ width: '105%', display: 'flex', marginTop: '5px'}}>
                 

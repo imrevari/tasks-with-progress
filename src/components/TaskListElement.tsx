@@ -53,20 +53,20 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
 
     return(
         <>
-            <ListItemButton>
-            <ListItemIcon sx={{ minWidth: '35px' }}>
-                {tasksFulfilled
-                ?
-                <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: '#08b494' }}/>
+            <ListItemButton onClick={showHIde}>
+                <ListItemIcon sx={{ minWidth: '35px' }}>
+                    {tasksFulfilled
+                    ?
+                    <AssignmentTurnedInOutlinedIcon fontSize="small" sx={{ color: '#08b494' }}/>
+                    :
+                    <AssignmentOutlinedIcon fontSize="small"/>
+                    }
+                </ListItemIcon>
+                <ListItemText primary={name} />
+                {isExpanded ? 
+                <>{'Hide'}<ExpandLess sx={{ color: '#e0dcdc' }}/></>
                 :
-                <AssignmentOutlinedIcon fontSize="small"/>
-                }
-            </ListItemIcon>
-            <ListItemText primary={name} />
-            {isExpanded ? 
-            <>{'Hide'}<ExpandLess onClick={showHIde} /></>
-            :
-            <> {'Show'}<ExpandMore onClick={showHIde} /></>}
+                <> {'Show'}<ExpandMore sx={{ color: '#e0dcdc' }}/></>}
             </ListItemButton>
             
             {isExpanded && <Collapse in={isExpanded} timeout="auto" unmountOnExit>
