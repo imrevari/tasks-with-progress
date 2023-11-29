@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { FC } from "react";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../progressBar/ProgressBar";
 import Tasks from "./Tasks";
-import { styles } from "../styles/styles";
+import { styles } from "../../styles/styles";
 
 
 const TasksWidget: FC = () => {

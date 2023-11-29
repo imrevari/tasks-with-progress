@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import { FC } from "react";
-import TasksWidget from "./TasksWidget";
+import TasksWidget from "./tasks/TasksWidget";
 import { styles } from "../styles/styles";
 
 

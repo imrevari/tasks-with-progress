@@ -3,10 +3,10 @@ import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 import { Collapse, Divider, FormGroup, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { FC, useMemo, useState } from "react";
-import { GroupOfTasks } from "../constants/interfaces";
-import { useStateContext } from "../stateContext/StateContext";
-import CheckboxComponent from "./checkbox/CheckboxComponent";
-import { styles } from "../styles/styles";
+import { GroupOfTasks } from "../../constants/interfaces";
+import { useStateContext } from "../../stateContext/StateContext";
+import CheckboxComponent from "../checkbox/CheckboxComponent";
+import { styles } from "../../styles/styles";
 
 
 interface TaskListElementProps {

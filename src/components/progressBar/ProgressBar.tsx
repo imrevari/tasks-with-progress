@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
-import { useStateContext } from "../stateContext/StateContext";
+import { useStateContext } from "../../stateContext/StateContext";
 import { Box, LinearProgress, Typography } from "@mui/material";
-import { styles } from "../styles/styles";
+import { styles } from "../../styles/styles";
 
 
 const ProgressBar: FC = () => {
