@@ -7,9 +7,9 @@ import { styles } from "../../styles/styles";
 
 
 
-const Tasks: FC = () => {
+const TasksList: FC = () => {
 
-    const {groupsOfTasks: tasks} = useStateContext()
+    const {groupsOfTasks} = useStateContext()
 
     return(
     <Box sx={styles.taskBox}>
@@ -18,15 +18,15 @@ const Tasks: FC = () => {
             component="div"
             aria-labelledby="nested-list-subheader"
         >
-           {tasks.map( (taskGroup, index) => <TaskListElement 
+           {groupsOfTasks.map( (taskGroup, index) => <TaskListElement 
                                                 taskGroup={taskGroup}
                                                 key={index}
-                                                isLast={index === (tasks.length - 1)}
+                                                isLast={index === (groupsOfTasks.length - 1)}
                                              />)}  
         </List>
     </Box>)
 }
 
-Tasks.displayName = 'Tasks';
+TasksList.displayName = 'TasksList';
 
-export default Tasks;
+export default TasksList;

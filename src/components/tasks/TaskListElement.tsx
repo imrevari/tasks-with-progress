@@ -43,7 +43,7 @@ const TaskListElement: FC<TaskListElementProps> = ({taskGroup, isLast}) => {
         })
         const newState = [...groupsOfTasks].map( (group) => {
             if(group === taskGroup){
-                return {name, tasks: updatedList}
+                return {...group, tasks: updatedList}
             }else{
                 return group
             }

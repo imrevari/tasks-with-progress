@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { useStateContext } from "../../stateContext/StateContext";
 import { Box, LinearProgress, Typography } from "@mui/material";
 import { styles } from "../../styles/styles";
@@ -14,16 +14,24 @@ const ProgressBar: FC = () => {
         groupsOfTasks.forEach( ({tasks}) => {
             tasks.forEach( ({value, checked}) => {if(checked){total = total + value}})
         });
-        return  (total / totalPoints) * 100;
+        return  Math.round((total / totalPoints) * 100);
     }, [groupsOfTasks, totalPoints])
 
-
     const percentagePosition = (fulfilledPercentage: number) => {
-            if((105 - fulfilledPercentage) > 95){
+            if((100 - fulfilledPercentage) > 90){
                 return 95
             }
-            if((105 - fulfilledPercentage) < 7){
+            if((100 - fulfilledPercentage) < 2){
                 return 7
+            }
+            if(fulfilledPercentage < 25){
+                return 102 - fulfilledPercentage
+            }
+            if(fulfilledPercentage < 50){
+                return 103 - fulfilledPercentage
+            }
+            if(fulfilledPercentage < 75){
+                return 104 - fulfilledPercentage
             }
             return (105 - fulfilledPercentage)
  
@@ -34,8 +42,7 @@ const ProgressBar: FC = () => {
                 Lodgify Grouped Tasks
             </Typography>
 
-            <Box sx={styles.progressBarInnerBox}>
-                
+            {!isNaN(fulfilledPercentage) && <Box sx={styles.progressBarInnerBox}>
                 <LinearProgress 
                     sx={styles.progressBarLinearProgress}
                     variant="determinate" 
@@ -51,7 +58,7 @@ const ProgressBar: FC = () => {
                 >
                     {`${Math.round(fulfilledPercentage)}%`}
                 </Typography>
-            </Box>
+            </Box>}
     </Box>)
 
 }
