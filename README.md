@@ -4,6 +4,9 @@ The assignment was to implement a collapsible list with checkboxes, where you ca
 ## Environment
 Use Node version 18 to run this code
 React is used for the development with TS
+## Running on local server
+ - run to install dependencies: npm i
+ - run to start: npm start
 ## Used external libraries
 
 - axios is used to fetch data from the mock server
