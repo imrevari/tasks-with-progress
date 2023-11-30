@@ -1,6 +1,6 @@
-import { FC, useEffect, useMemo } from "react";
-import { useStateContext } from "../../stateContext/StateContext";
 import { Box, LinearProgress, Typography } from "@mui/material";
+import { FC, useMemo } from "react";
+import { useStateContext } from "../../stateContext/StateContext";
 import { styles } from "../../styles/styles";
 
 
